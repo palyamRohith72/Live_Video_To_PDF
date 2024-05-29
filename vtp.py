@@ -1,8 +1,16 @@
 import streamlit as st
-import pyautogui
 from fpdf import FPDF
 from io import BytesIO
 from PIL import Image
+import os
+
+# Check if DISPLAY environment variable is not set
+if 'DISPLAY' not in os.environ:
+    # Set DISPLAY to a default value or any appropriate value for your environment
+    os.environ['DISPLAY'] = ':0.0'  # You can adjust this value as needed
+
+# Now import the modules that require DISPLAY
+import pyautogui
 
 # List to store screenshot images
 if "screenshots" not in st.session_state:
